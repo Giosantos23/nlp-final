@@ -1,0 +1,1438 @@
+{
+  "nominal": {
+    "trace_id": "mock-nominal",
+    "intent": "doc_query",
+    "response": {
+      "answer": "Para validar una recepción parcial en Odoo 18: 1) abre la recepción desde Inventario > Operaciones > Recepciones; 2) en la columna Cantidad registra las unidades realmente recibidas; 3) pulsa Validar. Odoo abrirá el asistente de backorder: elige Crear backorder para dejar pendiente el resto [odoo-18.0-inventario::p0042::c001], el cual queda enlazado a la orden de compra original [odoo-18.0-inventario::p0044::c000]. Si el proveedor no completará la entrega, registra la diferencia en el ticket del cliente [RB-N1-002@v1.1::p0003::c000].",
+      "sources": [
+        {
+          "source": "odoo-18.0-inventario.pdf",
+          "page": 42,
+          "chunk_id": "odoo-18.0-inventario::p0042::c001"
+        },
+        {
+          "source": "odoo-18.0-inventario.pdf",
+          "page": 44,
+          "chunk_id": "odoo-18.0-inventario::p0044::c000"
+        },
+        {
+          "source": "RB-N1-002_v1.1.pdf",
+          "page": 3,
+          "chunk_id": "RB-N1-002@v1.1::p0003::c000"
+        }
+      ],
+      "abstained": false,
+      "tool_used": null,
+      "needs_human_review": false
+    },
+    "pending_action": null,
+    "blocked": false,
+    "block_reason": null,
+    "latency_ms": 2444.6,
+    "usage": {
+      "llm_calls": 1,
+      "input_tokens": 2140,
+      "output_tokens": 212,
+      "cache_read_tokens": 1800,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0031
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "ok",
+        "duration_ms": 4.1,
+        "data": {
+          "allowed": true,
+          "risk_score": 0.04,
+          "flags": []
+        }
+      },
+      {
+        "stage": "router",
+        "status": "ok",
+        "duration_ms": 18.6,
+        "data": {
+          "intent": "doc_query",
+          "confidence": 0.93,
+          "rationale": "Consulta procedimental sobre documentación."
+        }
+      },
+      {
+        "stage": "retrieval.bm25",
+        "status": "ok",
+        "duration_ms": 21.3,
+        "data": {
+          "candidates": 20,
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 1,
+              "score": 14.2,
+              "retriever": "bm25"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0044::c000",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 44,
+              "rank": 2,
+              "score": 11.8,
+              "retriever": "bm25"
+            },
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0003::c000",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 3,
+              "rank": 3,
+              "score": 9.6,
+              "retriever": "bm25"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "retrieval.dense",
+        "status": "ok",
+        "duration_ms": 148.9,
+        "data": {
+          "candidates": 20,
+          "embedder": "bge-m3",
+          "top": [
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0003::c000",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 3,
+              "rank": 1,
+              "score": 0.71,
+              "retriever": "dense"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0044::c000",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 44,
+              "rank": 2,
+              "score": 0.66,
+              "retriever": "dense"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 3,
+              "score": 0.61,
+              "retriever": "dense"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "retrieval.fusion",
+        "status": "ok",
+        "duration_ms": 1.2,
+        "data": {
+          "method": "rrf",
+          "k": 60,
+          "weights": {
+            "bm25": 0.5,
+            "dense": 0.5
+          },
+          "filtered_out": 7,
+          "filters": {
+            "erp_version": "18.0",
+            "status": "vigente"
+          },
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 1,
+              "score": 0.0328,
+              "retriever": "hybrid"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0044::c000",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 44,
+              "rank": 2,
+              "score": 0.032,
+              "retriever": "hybrid"
+            },
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0003::c000",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 3,
+              "rank": 3,
+              "score": 0.0298,
+              "retriever": "hybrid"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "rerank",
+        "status": "ok",
+        "duration_ms": 612.4,
+        "data": {
+          "model": "bge-reranker-v2-m3",
+          "input": 20,
+          "output": 5,
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 1,
+              "score": 0.86,
+              "retriever": "rerank"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0044::c000",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 44,
+              "rank": 2,
+              "score": 0.77,
+              "retriever": "rerank"
+            },
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0003::c000",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 3,
+              "rank": 3,
+              "score": 0.67,
+              "retriever": "rerank"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "evidence_gate",
+        "status": "ok",
+        "duration_ms": 0.4,
+        "data": {
+          "top_score": 0.86,
+          "tau": 0.3,
+          "passed": true
+        }
+      },
+      {
+        "stage": "permission_check",
+        "status": "ok",
+        "duration_ms": 0.9,
+        "data": {
+          "role_checked": true,
+          "denied": 0
+        }
+      },
+      {
+        "stage": "generation",
+        "status": "ok",
+        "duration_ms": 1620,
+        "data": {
+          "provider": "agent_sdk",
+          "model": "claude-haiku-5-5",
+          "input_tokens": 2140,
+          "output_tokens": 212,
+          "retries": 0
+        }
+      },
+      {
+        "stage": "output_guard",
+        "status": "ok",
+        "duration_ms": 3.8,
+        "data": {
+          "valid": true,
+          "citations_checked": 3,
+          "pii_found": false,
+          "canary_leak": false
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.6,
+        "data": {}
+      }
+    ]
+  },
+  "abstention": {
+    "trace_id": "mock-abstention",
+    "intent": "doc_query",
+    "response": {
+      "answer": "No encontré evidencia suficiente en la documentación autorizada para responder esta consulta. Te recomiendo escalarla a un analista N2.",
+      "sources": [],
+      "abstained": true,
+      "tool_used": null,
+      "needs_human_review": true
+    },
+    "pending_action": null,
+    "blocked": false,
+    "block_reason": null,
+    "latency_ms": 805.1,
+    "usage": {
+      "llm_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "ok",
+        "duration_ms": 3.9,
+        "data": {
+          "allowed": true,
+          "risk_score": 0.02,
+          "flags": []
+        }
+      },
+      {
+        "stage": "router",
+        "status": "ok",
+        "duration_ms": 17.2,
+        "data": {
+          "intent": "doc_query",
+          "confidence": 0.71,
+          "rationale": "Pregunta técnica sobre integración."
+        }
+      },
+      {
+        "stage": "retrieval.bm25",
+        "status": "ok",
+        "duration_ms": 19.8,
+        "data": {
+          "candidates": 20,
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 1,
+              "score": 3.1,
+              "retriever": "bm25"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "retrieval.dense",
+        "status": "ok",
+        "duration_ms": 151.2,
+        "data": {
+          "candidates": 20,
+          "embedder": "bge-m3",
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 1,
+              "score": 0.34,
+              "retriever": "dense"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "retrieval.fusion",
+        "status": "ok",
+        "duration_ms": 1.1,
+        "data": {
+          "method": "rrf",
+          "k": 60,
+          "filtered_out": 5,
+          "filters": {
+            "erp_version": "18.0",
+            "status": "vigente"
+          },
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 1,
+              "score": 0.0164,
+              "retriever": "hybrid"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "rerank",
+        "status": "ok",
+        "duration_ms": 598.7,
+        "data": {
+          "model": "bge-reranker-v2-m3",
+          "input": 20,
+          "output": 5,
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 1,
+              "score": 0.18,
+              "retriever": "rerank"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "evidence_gate",
+        "status": "blocked",
+        "duration_ms": 0.3,
+        "data": {
+          "top_score": 0.18,
+          "tau": 0.3,
+          "passed": false
+        }
+      },
+      {
+        "stage": "generation",
+        "status": "skipped",
+        "duration_ms": 0.0,
+        "data": {
+          "reason": "sin evidencia suficiente"
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.5,
+        "data": {
+          "abstained": true
+        }
+      }
+    ]
+  },
+  "denied_role": {
+    "trace_id": "mock-denied-role",
+    "intent": "doc_query",
+    "response": {
+      "answer": "No tienes permisos para consultar este documento. El runbook solicitado requiere el rol administrador. Si lo necesitas, solicita acceso a tu supervisor.",
+      "sources": [],
+      "abstained": true,
+      "tool_used": null,
+      "needs_human_review": false
+    },
+    "pending_action": null,
+    "blocked": true,
+    "block_reason": "permission_denied: el documento requiere un rol superior",
+    "latency_ms": 207.1,
+    "usage": {
+      "llm_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "ok",
+        "duration_ms": 4.0,
+        "data": {
+          "allowed": true,
+          "risk_score": 0.05,
+          "flags": []
+        }
+      },
+      {
+        "stage": "router",
+        "status": "ok",
+        "duration_ms": 18.1,
+        "data": {
+          "intent": "doc_query",
+          "confidence": 0.9,
+          "rationale": "Consulta sobre un runbook."
+        }
+      },
+      {
+        "stage": "retrieval.bm25",
+        "status": "ok",
+        "duration_ms": 20.4,
+        "data": {
+          "candidates": 20,
+          "top": []
+        }
+      },
+      {
+        "stage": "retrieval.dense",
+        "status": "ok",
+        "duration_ms": 149.5,
+        "data": {
+          "candidates": 20,
+          "embedder": "bge-m3",
+          "top": []
+        }
+      },
+      {
+        "stage": "retrieval.fusion",
+        "status": "ok",
+        "duration_ms": 1.0,
+        "data": {
+          "method": "rrf",
+          "k": 60,
+          "filtered_out": 6,
+          "filters": {
+            "erp_version": "18.0",
+            "status": "vigente",
+            "role": "portal_user"
+          },
+          "top": []
+        }
+      },
+      {
+        "stage": "permission_check",
+        "status": "blocked",
+        "duration_ms": 1.2,
+        "data": {
+          "role_checked": true,
+          "denied": 6,
+          "required_role": "admin"
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.5,
+        "data": {
+          "abstained": true
+        }
+      }
+    ]
+  },
+  "ticket_status": {
+    "trace_id": "mock-ticket-status",
+    "intent": "ticket_status",
+    "response": {
+      "answer": "El ticket TCK-00042 (\"Error al validar recepciones en almacén central\") está En progreso, prioridad alta, asignado a USR-0101. La fecha límite de SLA es el 2026-11-19 17:00.",
+      "sources": [],
+      "abstained": false,
+      "tool_used": "get_ticket_status",
+      "needs_human_review": false
+    },
+    "pending_action": null,
+    "blocked": false,
+    "block_reason": null,
+    "latency_ms": 1219.7,
+    "usage": {
+      "llm_calls": 1,
+      "input_tokens": 640,
+      "output_tokens": 96,
+      "cache_read_tokens": 0,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0031
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "ok",
+        "duration_ms": 3.8,
+        "data": {
+          "allowed": true,
+          "risk_score": 0.01,
+          "flags": []
+        }
+      },
+      {
+        "stage": "router",
+        "status": "ok",
+        "duration_ms": 11.4,
+        "data": {
+          "intent": "ticket_status",
+          "confidence": 0.99,
+          "rationale": "Identificador TCK-\\d{5} detectado."
+        }
+      },
+      {
+        "stage": "tool.get_ticket_status",
+        "status": "ok",
+        "duration_ms": 7.9,
+        "data": {
+          "ticket_id": "TCK-00042",
+          "found": true,
+          "scope": "n1:asignado"
+        }
+      },
+      {
+        "stage": "permission_check",
+        "status": "ok",
+        "duration_ms": 0.8,
+        "data": {
+          "role_checked": true,
+          "denied": 0
+        }
+      },
+      {
+        "stage": "generation",
+        "status": "ok",
+        "duration_ms": 1180.0,
+        "data": {
+          "provider": "agent_sdk",
+          "model": "claude-haiku-5-5",
+          "input_tokens": 640,
+          "output_tokens": 96,
+          "retries": 0
+        }
+      },
+      {
+        "stage": "output_guard",
+        "status": "ok",
+        "duration_ms": 2.9,
+        "data": {
+          "valid": true,
+          "citations_checked": 0,
+          "pii_found": false,
+          "canary_leak": false
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.5,
+        "data": {}
+      }
+    ]
+  },
+  "ticket_classify": {
+    "trace_id": "mock-ticket-classify",
+    "intent": "ticket_classify",
+    "response": {
+      "answer": "Clasificación sugerida: categoría Acceso y permisos, módulo Facturación, prioridad Alta (confianza 0.78). Probable causa: grupos de acceso no migrados tras la actualización.",
+      "sources": [],
+      "abstained": false,
+      "tool_used": "classify_ticket",
+      "needs_human_review": false
+    },
+    "pending_action": null,
+    "blocked": false,
+    "block_reason": null,
+    "latency_ms": 1318.2,
+    "usage": {
+      "llm_calls": 1,
+      "input_tokens": 720,
+      "output_tokens": 110,
+      "cache_read_tokens": 0,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0031
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "ok",
+        "duration_ms": 4.2,
+        "data": {
+          "allowed": true,
+          "risk_score": 0.03,
+          "flags": []
+        }
+      },
+      {
+        "stage": "router",
+        "status": "ok",
+        "duration_ms": 14.7,
+        "data": {
+          "intent": "ticket_classify",
+          "confidence": 0.95,
+          "rationale": "Verbo 'clasifica' detectado."
+        }
+      },
+      {
+        "stage": "tool.classify_ticket",
+        "status": "ok",
+        "duration_ms": 42.6,
+        "data": {
+          "model": "tfidf+lr",
+          "category": "acceso_permisos",
+          "module": "facturacion",
+          "priority": "alta",
+          "confidence": 0.78
+        }
+      },
+      {
+        "stage": "permission_check",
+        "status": "ok",
+        "duration_ms": 0.7,
+        "data": {
+          "role_checked": true,
+          "denied": 0
+        }
+      },
+      {
+        "stage": "generation",
+        "status": "ok",
+        "duration_ms": 1240.0,
+        "data": {
+          "provider": "agent_sdk",
+          "model": "claude-haiku-5-5",
+          "input_tokens": 720,
+          "output_tokens": 110,
+          "retries": 0
+        }
+      },
+      {
+        "stage": "output_guard",
+        "status": "ok",
+        "duration_ms": 3.1,
+        "data": {
+          "valid": true,
+          "citations_checked": 0,
+          "pii_found": false,
+          "canary_leak": false
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.5,
+        "data": {}
+      }
+    ]
+  },
+  "ticket_create": {
+    "trace_id": "mock-ticket-create",
+    "intent": "ticket_create",
+    "response": {
+      "answer": "Preparé un borrador de ticket (categoría Error funcional, prioridad Alta, módulo Inventario). Revísalo y confírmalo para crearlo; el token vence en 10 minutos.",
+      "sources": [],
+      "abstained": false,
+      "tool_used": "create_ticket",
+      "needs_human_review": true
+    },
+    "pending_action": {
+      "action": "create_ticket",
+      "draft": {
+        "summary": "Falla al reservar stock en recepciones del almacén central",
+        "description": "El cliente reporta error al validar recepciones; la reserva de stock falla en el almacén central desde la última actualización.",
+        "category": "error_funcional",
+        "priority": "alta",
+        "module": "inventario",
+        "account_id": "ACC-0001"
+      },
+      "confirmation_token": "mock-0123456789abcdef0123456789abcdef",
+      "expires_at": "2026-11-17T12:10:00Z"
+    },
+    "blocked": false,
+    "block_reason": null,
+    "latency_ms": 1133.8,
+    "usage": {
+      "llm_calls": 1,
+      "input_tokens": 700,
+      "output_tokens": 88,
+      "cache_read_tokens": 0,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0031
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "ok",
+        "duration_ms": 4.0,
+        "data": {
+          "allowed": true,
+          "risk_score": 0.02,
+          "flags": []
+        }
+      },
+      {
+        "stage": "router",
+        "status": "ok",
+        "duration_ms": 13.9,
+        "data": {
+          "intent": "ticket_create",
+          "confidence": 0.97,
+          "rationale": "Verbo de creación detectado."
+        }
+      },
+      {
+        "stage": "tool.create_ticket",
+        "status": "ok",
+        "duration_ms": 9.4,
+        "data": {
+          "mode": "draft",
+          "idempotency_key": "9c1f…",
+          "session_quota": "1/3"
+        }
+      },
+      {
+        "stage": "permission_check",
+        "status": "ok",
+        "duration_ms": 0.9,
+        "data": {
+          "role_checked": true,
+          "denied": 0
+        }
+      },
+      {
+        "stage": "generation",
+        "status": "ok",
+        "duration_ms": 1090.0,
+        "data": {
+          "provider": "agent_sdk",
+          "model": "claude-haiku-5-5",
+          "input_tokens": 700,
+          "output_tokens": 88,
+          "retries": 0
+        }
+      },
+      {
+        "stage": "output_guard",
+        "status": "ok",
+        "duration_ms": 2.7,
+        "data": {
+          "valid": true,
+          "citations_checked": 0,
+          "pii_found": false,
+          "canary_leak": false
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.5,
+        "data": {
+          "pending_confirmation": true
+        }
+      }
+    ]
+  },
+  "ticket_create_confirmed": {
+    "trace_id": "mock-ticket-confirmed",
+    "intent": "ticket_create",
+    "response": {
+      "answer": "Ticket TCK-00301 creado correctamente a partir del borrador confirmado.",
+      "sources": [],
+      "abstained": false,
+      "tool_used": "create_ticket",
+      "needs_human_review": false
+    },
+    "pending_action": null,
+    "blocked": false,
+    "block_reason": null,
+    "latency_ms": 32.4,
+    "usage": {
+      "llm_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "ok",
+        "duration_ms": 2.1,
+        "data": {
+          "allowed": true,
+          "risk_score": 0.0,
+          "flags": []
+        }
+      },
+      {
+        "stage": "tool.create_ticket",
+        "status": "ok",
+        "duration_ms": 14.8,
+        "data": {
+          "mode": "commit",
+          "ticket_id": "TCK-00301",
+          "token_consumed": true
+        }
+      },
+      {
+        "stage": "permission_check",
+        "status": "ok",
+        "duration_ms": 0.8,
+        "data": {
+          "role_checked": true,
+          "denied": 0
+        }
+      },
+      {
+        "stage": "output_guard",
+        "status": "ok",
+        "duration_ms": 1.9,
+        "data": {
+          "valid": true,
+          "citations_checked": 0,
+          "pii_found": false,
+          "canary_leak": false
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.4,
+        "data": {}
+      }
+    ]
+  },
+  "injection_blocked": {
+    "trace_id": "mock-injection",
+    "intent": "out_of_domain",
+    "response": {
+      "answer": "No puedo procesar esta solicitud porque parece intentar modificar mis instrucciones. Reformula tu consulta sobre procedimientos de Odoo o tickets.",
+      "sources": [],
+      "abstained": true,
+      "tool_used": null,
+      "needs_human_review": false
+    },
+    "pending_action": null,
+    "blocked": true,
+    "block_reason": "input_guard: posible inyección de instrucciones",
+    "latency_ms": 22.5,
+    "usage": {
+      "llm_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "blocked",
+        "duration_ms": 9.7,
+        "data": {
+          "allowed": false,
+          "risk_score": 0.97,
+          "flags": [
+            "prompt_injection_direct",
+            "system_prompt_exfiltration"
+          ]
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.4,
+        "data": {
+          "blocked": true
+        }
+      }
+    ]
+  },
+  "version_17": {
+    "trace_id": "mock-version-17",
+    "intent": "doc_query",
+    "response": {
+      "answer": "En Odoo 17.0, al validar una recepción con menos unidades de las planificadas aparece el diálogo de backorder [odoo-17.0-inventario::p0038::c002]; para editar lotes o series debes activar Mostrar operaciones detalladas en el tipo de operación [odoo-17.0-inventario::p0040::c000]. En 18.0 el asistente se abre directamente y esa opción ya no es necesaria [RB-N1-002@v1.1::p0005::c001]. Cambia la versión a 18.0 para ver el flujo de esa versión.",
+      "sources": [
+        {
+          "source": "odoo-17.0-inventario.pdf",
+          "page": 38,
+          "chunk_id": "odoo-17.0-inventario::p0038::c002"
+        },
+        {
+          "source": "odoo-17.0-inventario.pdf",
+          "page": 40,
+          "chunk_id": "odoo-17.0-inventario::p0040::c000"
+        },
+        {
+          "source": "RB-N1-002_v1.1.pdf",
+          "page": 5,
+          "chunk_id": "RB-N1-002@v1.1::p0005::c001"
+        }
+      ],
+      "abstained": false,
+      "tool_used": null,
+      "needs_human_review": false
+    },
+    "pending_action": null,
+    "blocked": false,
+    "block_reason": null,
+    "latency_ms": 2444.6,
+    "usage": {
+      "llm_calls": 1,
+      "input_tokens": 2140,
+      "output_tokens": 212,
+      "cache_read_tokens": 1800,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0031
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "ok",
+        "duration_ms": 4.1,
+        "data": {
+          "allowed": true,
+          "risk_score": 0.04,
+          "flags": []
+        }
+      },
+      {
+        "stage": "router",
+        "status": "ok",
+        "duration_ms": 18.6,
+        "data": {
+          "intent": "doc_query",
+          "confidence": 0.93,
+          "rationale": "Consulta procedimental sobre documentación."
+        }
+      },
+      {
+        "stage": "retrieval.bm25",
+        "status": "ok",
+        "duration_ms": 21.3,
+        "data": {
+          "candidates": 20,
+          "top": [
+            {
+              "chunk_id": "odoo-17.0-inventario::p0038::c002",
+              "source": "odoo-17.0-inventario.pdf",
+              "page": 38,
+              "rank": 1,
+              "score": 14.2,
+              "retriever": "bm25"
+            },
+            {
+              "chunk_id": "odoo-17.0-inventario::p0040::c000",
+              "source": "odoo-17.0-inventario.pdf",
+              "page": 40,
+              "rank": 2,
+              "score": 11.8,
+              "retriever": "bm25"
+            },
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0005::c001",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 5,
+              "rank": 3,
+              "score": 9.6,
+              "retriever": "bm25"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "retrieval.dense",
+        "status": "ok",
+        "duration_ms": 148.9,
+        "data": {
+          "candidates": 20,
+          "embedder": "bge-m3",
+          "top": [
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0005::c001",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 5,
+              "rank": 1,
+              "score": 0.71,
+              "retriever": "dense"
+            },
+            {
+              "chunk_id": "odoo-17.0-inventario::p0040::c000",
+              "source": "odoo-17.0-inventario.pdf",
+              "page": 40,
+              "rank": 2,
+              "score": 0.66,
+              "retriever": "dense"
+            },
+            {
+              "chunk_id": "odoo-17.0-inventario::p0038::c002",
+              "source": "odoo-17.0-inventario.pdf",
+              "page": 38,
+              "rank": 3,
+              "score": 0.61,
+              "retriever": "dense"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "retrieval.fusion",
+        "status": "ok",
+        "duration_ms": 1.2,
+        "data": {
+          "method": "rrf",
+          "k": 60,
+          "weights": {
+            "bm25": 0.5,
+            "dense": 0.5
+          },
+          "filtered_out": 9,
+          "filters": {
+            "erp_version": "17.0",
+            "status": "vigente"
+          },
+          "top": [
+            {
+              "chunk_id": "odoo-17.0-inventario::p0038::c002",
+              "source": "odoo-17.0-inventario.pdf",
+              "page": 38,
+              "rank": 1,
+              "score": 0.0328,
+              "retriever": "hybrid"
+            },
+            {
+              "chunk_id": "odoo-17.0-inventario::p0040::c000",
+              "source": "odoo-17.0-inventario.pdf",
+              "page": 40,
+              "rank": 2,
+              "score": 0.032,
+              "retriever": "hybrid"
+            },
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0005::c001",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 5,
+              "rank": 3,
+              "score": 0.0298,
+              "retriever": "hybrid"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "rerank",
+        "status": "ok",
+        "duration_ms": 612.4,
+        "data": {
+          "model": "bge-reranker-v2-m3",
+          "input": 20,
+          "output": 5,
+          "top": [
+            {
+              "chunk_id": "odoo-17.0-inventario::p0038::c002",
+              "source": "odoo-17.0-inventario.pdf",
+              "page": 38,
+              "rank": 1,
+              "score": 0.81,
+              "retriever": "rerank"
+            },
+            {
+              "chunk_id": "odoo-17.0-inventario::p0040::c000",
+              "source": "odoo-17.0-inventario.pdf",
+              "page": 40,
+              "rank": 2,
+              "score": 0.72,
+              "retriever": "rerank"
+            },
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0005::c001",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 5,
+              "rank": 3,
+              "score": 0.62,
+              "retriever": "rerank"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "evidence_gate",
+        "status": "ok",
+        "duration_ms": 0.4,
+        "data": {
+          "top_score": 0.81,
+          "tau": 0.3,
+          "passed": true
+        }
+      },
+      {
+        "stage": "permission_check",
+        "status": "ok",
+        "duration_ms": 0.9,
+        "data": {
+          "role_checked": true,
+          "denied": 0
+        }
+      },
+      {
+        "stage": "generation",
+        "status": "ok",
+        "duration_ms": 1620,
+        "data": {
+          "provider": "agent_sdk",
+          "model": "claude-haiku-5-5",
+          "input_tokens": 2140,
+          "output_tokens": 212,
+          "retries": 0
+        }
+      },
+      {
+        "stage": "output_guard",
+        "status": "ok",
+        "duration_ms": 3.8,
+        "data": {
+          "valid": true,
+          "citations_checked": 3,
+          "pii_found": false,
+          "canary_leak": false
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.6,
+        "data": {}
+      }
+    ]
+  },
+  "version_18": {
+    "trace_id": "mock-version-18",
+    "intent": "doc_query",
+    "response": {
+      "answer": "En Odoo 18.0 las recepciones abren el asistente de backorder directamente al validar y la vista de operaciones detalladas está disponible por defecto [odoo-18.0-inventario::p0047::c001]; el procedimiento de validación parcial sigue siendo el mismo [odoo-18.0-inventario::p0042::c001]. En 17.0 había que activar una opción del tipo de operación [RB-N1-002@v1.1::p0005::c001]. Cambia la versión a 17.0 para ver ese flujo.",
+      "sources": [
+        {
+          "source": "odoo-18.0-inventario.pdf",
+          "page": 47,
+          "chunk_id": "odoo-18.0-inventario::p0047::c001"
+        },
+        {
+          "source": "odoo-18.0-inventario.pdf",
+          "page": 42,
+          "chunk_id": "odoo-18.0-inventario::p0042::c001"
+        },
+        {
+          "source": "RB-N1-002_v1.1.pdf",
+          "page": 5,
+          "chunk_id": "RB-N1-002@v1.1::p0005::c001"
+        }
+      ],
+      "abstained": false,
+      "tool_used": null,
+      "needs_human_review": false
+    },
+    "pending_action": null,
+    "blocked": false,
+    "block_reason": null,
+    "latency_ms": 2444.6,
+    "usage": {
+      "llm_calls": 1,
+      "input_tokens": 2140,
+      "output_tokens": 212,
+      "cache_read_tokens": 1800,
+      "cache_creation_tokens": 0,
+      "cost_usd": 0.0031
+    },
+    "events": [
+      {
+        "stage": "input_guard",
+        "status": "ok",
+        "duration_ms": 4.1,
+        "data": {
+          "allowed": true,
+          "risk_score": 0.04,
+          "flags": []
+        }
+      },
+      {
+        "stage": "router",
+        "status": "ok",
+        "duration_ms": 18.6,
+        "data": {
+          "intent": "doc_query",
+          "confidence": 0.93,
+          "rationale": "Consulta procedimental sobre documentación."
+        }
+      },
+      {
+        "stage": "retrieval.bm25",
+        "status": "ok",
+        "duration_ms": 21.3,
+        "data": {
+          "candidates": 20,
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0047::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 47,
+              "rank": 1,
+              "score": 14.2,
+              "retriever": "bm25"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 2,
+              "score": 11.8,
+              "retriever": "bm25"
+            },
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0005::c001",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 5,
+              "rank": 3,
+              "score": 9.6,
+              "retriever": "bm25"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "retrieval.dense",
+        "status": "ok",
+        "duration_ms": 148.9,
+        "data": {
+          "candidates": 20,
+          "embedder": "bge-m3",
+          "top": [
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0005::c001",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 5,
+              "rank": 1,
+              "score": 0.71,
+              "retriever": "dense"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 2,
+              "score": 0.66,
+              "retriever": "dense"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0047::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 47,
+              "rank": 3,
+              "score": 0.61,
+              "retriever": "dense"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "retrieval.fusion",
+        "status": "ok",
+        "duration_ms": 1.2,
+        "data": {
+          "method": "rrf",
+          "k": 60,
+          "weights": {
+            "bm25": 0.5,
+            "dense": 0.5
+          },
+          "filtered_out": 8,
+          "filters": {
+            "erp_version": "18.0",
+            "status": "vigente"
+          },
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0047::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 47,
+              "rank": 1,
+              "score": 0.0328,
+              "retriever": "hybrid"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 2,
+              "score": 0.032,
+              "retriever": "hybrid"
+            },
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0005::c001",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 5,
+              "rank": 3,
+              "score": 0.0298,
+              "retriever": "hybrid"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "rerank",
+        "status": "ok",
+        "duration_ms": 612.4,
+        "data": {
+          "model": "bge-reranker-v2-m3",
+          "input": 20,
+          "output": 5,
+          "top": [
+            {
+              "chunk_id": "odoo-18.0-inventario::p0047::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 47,
+              "rank": 1,
+              "score": 0.84,
+              "retriever": "rerank"
+            },
+            {
+              "chunk_id": "odoo-18.0-inventario::p0042::c001",
+              "source": "odoo-18.0-inventario.pdf",
+              "page": 42,
+              "rank": 2,
+              "score": 0.75,
+              "retriever": "rerank"
+            },
+            {
+              "chunk_id": "RB-N1-002@v1.1::p0005::c001",
+              "source": "RB-N1-002_v1.1.pdf",
+              "page": 5,
+              "rank": 3,
+              "score": 0.65,
+              "retriever": "rerank"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "evidence_gate",
+        "status": "ok",
+        "duration_ms": 0.4,
+        "data": {
+          "top_score": 0.84,
+          "tau": 0.3,
+          "passed": true
+        }
+      },
+      {
+        "stage": "permission_check",
+        "status": "ok",
+        "duration_ms": 0.9,
+        "data": {
+          "role_checked": true,
+          "denied": 0
+        }
+      },
+      {
+        "stage": "generation",
+        "status": "ok",
+        "duration_ms": 1620,
+        "data": {
+          "provider": "agent_sdk",
+          "model": "claude-haiku-5-5",
+          "input_tokens": 2140,
+          "output_tokens": 212,
+          "retries": 0
+        }
+      },
+      {
+        "stage": "output_guard",
+        "status": "ok",
+        "duration_ms": 3.8,
+        "data": {
+          "valid": true,
+          "citations_checked": 3,
+          "pii_found": false,
+          "canary_leak": false
+        }
+      },
+      {
+        "stage": "respond",
+        "status": "ok",
+        "duration_ms": 0.6,
+        "data": {}
+      }
+    ]
+  }
+}

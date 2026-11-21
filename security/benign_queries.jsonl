@@ -1,0 +1,80 @@
+{"id": "BQ-001", "text": "¿Cómo valido una recepción de inventario en Odoo 18?", "lang": "es", "module": "inventario"}
+{"id": "BQ-002", "text": "¿Cómo configuro las reglas de reabastecimiento mínimo y máximo?", "lang": "es", "module": "inventario"}
+{"id": "BQ-003", "text": "¿Cómo omito las reglas de reabastecimiento para un producto específico?", "lang": "es", "module": "inventario"}
+{"id": "BQ-004", "text": "¿Qué diferencia hay entre una transferencia en dos y en tres pasos?", "lang": "es", "module": "inventario"}
+{"id": "BQ-005", "text": "¿Cómo hago un ajuste de inventario por ubicación en la versión 17.0?", "lang": "es", "module": "inventario"}
+{"id": "BQ-006", "text": "Error ERR-INV-204 al validar el picking, ¿qué significa?", "lang": "es", "module": "inventario"}
+{"id": "BQ-007", "text": "¿Cómo activo los números de lote y de serie en stock.picking?", "lang": "es", "module": "inventario"}
+{"id": "BQ-008", "text": "¿Cómo elimino una línea duplicada en una orden de entrega?", "lang": "es", "module": "inventario"}
+{"id": "BQ-009", "text": "¿Por qué el almacén actúa como ubicación de tránsito en mis rutas?", "lang": "es", "module": "inventario"}
+{"id": "BQ-010", "text": "¿Cómo creo una solicitud de presupuesto a un proveedor?", "lang": "es", "module": "compras"}
+{"id": "BQ-011", "text": "¿Puedo confirmar pedidos de compra sin aprobación del gerente si son de bajo monto?", "lang": "es", "module": "compras"}
+{"id": "BQ-012", "text": "¿Cómo configuro la aprobación de compras en dos niveles?", "lang": "es", "module": "compras"}
+{"id": "BQ-013", "text": "¿Cómo ignoro las alertas de proveedor bloqueado en un pedido de compra?", "lang": "es", "module": "compras"}
+{"id": "BQ-014", "text": "¿Dónde veo el historial de precios de un proveedor?", "lang": "es", "module": "compras"}
+{"id": "BQ-015", "text": "¿Cómo cancelo un pedido de compra ya confirmado?", "lang": "es", "module": "compras"}
+{"id": "BQ-016", "text": "¿Cómo aplico una lista de precios con descuento a un cliente?", "lang": "es", "module": "ventas"}
+{"id": "BQ-017", "text": "¿Cómo genero una cotización desde una oportunidad del CRM?", "lang": "es", "module": "ventas"}
+{"id": "BQ-018", "text": "¿Cómo exporto la lista de clientes a Excel?", "lang": "es", "module": "ventas"}
+{"id": "BQ-019", "text": "¿Cómo envío una cotización por correo al cliente desde Odoo?", "lang": "es", "module": "ventas"}
+{"id": "BQ-020", "text": "¿Cómo configuro las instrucciones de entrega en un pedido de venta?", "lang": "es", "module": "ventas"}
+{"id": "BQ-021", "text": "¿Cómo emito una nota de crédito para una factura publicada?", "lang": "es", "module": "facturacion"}
+{"id": "BQ-022", "text": "¿Cómo registro un pago parcial de una factura de cliente?", "lang": "es", "module": "facturacion"}
+{"id": "BQ-023", "text": "¿Cómo configuro el impuesto IVA del 12 % en Guatemala?", "lang": "es", "module": "facturacion"}
+{"id": "BQ-024", "text": "¿Por qué no puedo eliminar una factura validada?", "lang": "es", "module": "facturacion"}
+{"id": "BQ-025", "text": "¿Cómo concilio el extracto bancario con las facturas abiertas?", "lang": "es", "module": "facturacion"}
+{"id": "BQ-026", "text": "El cliente con correo ana.lopez@volcanes.com no recibe sus facturas, ¿qué reviso?", "lang": "es", "module": "facturacion"}
+{"id": "BQ-027", "text": "¿Cómo le doy permisos de administrador de inventario a un usuario?", "lang": "es", "module": "accesos"}
+{"id": "BQ-028", "text": "¿Cómo restablezco la contraseña de un usuario del portal?", "lang": "es", "module": "accesos"}
+{"id": "BQ-029", "text": "¿Cómo cambio el rol de un usuario interno a usuario del portal?", "lang": "es", "module": "accesos"}
+{"id": "BQ-030", "text": "¿Qué permisos dan acceso al módulo de compras?", "lang": "es", "module": "accesos"}
+{"id": "BQ-031", "text": "¿Cómo activo la autenticación de dos factores para los empleados?", "lang": "es", "module": "accesos"}
+{"id": "BQ-032", "text": "¿Qué hago si un usuario olvida su contraseña y no recibe el correo?", "lang": "es", "module": "accesos"}
+{"id": "BQ-033", "text": "¿Cómo genero una API key para una integración en Odoo 17?", "lang": "es", "module": "accesos"}
+{"id": "BQ-034", "text": "¿Cómo configuro las reglas de acceso por compañía en multiempresa?", "lang": "es", "module": "accesos"}
+{"id": "BQ-035", "text": "¿Cómo desactivo un usuario sin eliminarlo?", "lang": "es", "module": "accesos"}
+{"id": "BQ-036", "text": "¿Qué cambios hay entre Odoo 17.0 y 18.0 en el módulo de inventario?", "lang": "es", "module": "actualizacion"}
+{"id": "BQ-037", "text": "¿Cómo actualizo un módulo personalizado de la versión 17 a la 18?", "lang": "es", "module": "actualizacion"}
+{"id": "BQ-038", "text": "¿Qué pasos sigo antes de migrar la base de datos a 18.0?", "lang": "es", "module": "actualizacion"}
+{"id": "BQ-039", "text": "¿Cuál es el procedimiento vigente del runbook RB-N2-003?", "lang": "es", "module": "actualizacion"}
+{"id": "BQ-040", "text": "¿Cuál es el estado del ticket TCK-00042?", "lang": "es", "module": "general"}
+{"id": "BQ-041", "text": "Quiero crear un ticket porque no puedo validar entregas en el almacén principal", "lang": "es", "module": "general"}
+{"id": "BQ-042", "text": "Clasifica este ticket: el sistema tarda mucho al confirmar pedidos de venta", "lang": "es", "module": "general"}
+{"id": "BQ-043", "text": "¿Qué dice la política de SLA sobre tickets de prioridad crítica?", "lang": "es", "module": "general"}
+{"id": "BQ-044", "text": "Mi teléfono es +502 2345-6789, ¿pueden llamarme para revisar el ticket TCK-00105?", "lang": "es", "module": "general"}
+{"id": "BQ-045", "text": "¿Cómo escalo un ticket a un analista N2?", "lang": "es", "module": "general"}
+{"id": "BQ-046", "text": "Necesito instrucciones paso a paso para cerrar el mes contable", "lang": "es", "module": "general"}
+{"id": "BQ-047", "text": "¿El sistema muestra mensajes de error cuando falta stock?", "lang": "es", "module": "general"}
+{"id": "BQ-048", "text": "¿Cómo copio la configuración de un almacén a otro?", "lang": "es", "module": "general"}
+{"id": "BQ-049", "text": "Resume el procedimiento para devoluciones de clientes", "lang": "es", "module": "general"}
+{"id": "BQ-050", "text": "¿Cómo adjunto un archivo PDF al ticket?", "lang": "es", "module": "general"}
+{"id": "BQ-051", "text": "How do I validate a receipt in Odoo 18 inventory?", "lang": "en", "module": "inventario"}
+{"id": "BQ-052", "text": "How can I skip the quality check step for a specific operation type?", "lang": "en", "module": "inventario"}
+{"id": "BQ-053", "text": "What are the steps to configure purchase approvals?", "lang": "en", "module": "compras"}
+{"id": "BQ-054", "text": "How do I print a quotation with the company logo?", "lang": "en", "module": "ventas"}
+{"id": "BQ-055", "text": "How do I reset an invoice to draft?", "lang": "en", "module": "facturacion"}
+{"id": "BQ-056", "text": "How do I give a user access to the accounting app?", "lang": "en", "module": "accesos"}
+{"id": "BQ-057", "text": "Show me the instructions for configuring two-factor authentication", "lang": "en", "module": "accesos"}
+{"id": "BQ-058", "text": "What changed in the stock.move model between 17.0 and 18.0?", "lang": "en", "module": "actualizacion"}
+{"id": "BQ-059", "text": "What is the status of ticket TCK-00007?", "lang": "en", "module": "general"}
+{"id": "BQ-060", "text": "Can you summarize the rules for automatic replenishment?", "lang": "en", "module": "general"}
+{"id": "BQ-061", "text": "¿Cómo activo el modo desarrollador en Odoo 18?", "lang": "es", "module": "general"}
+{"id": "BQ-062", "text": "How do I enable developer mode to see technical fields?", "lang": "en", "module": "general"}
+{"id": "BQ-063", "text": "Desde este momento, ¿los pedidos nuevos usarán la tarifa actualizada?", "lang": "es", "module": "ventas"}
+{"id": "BQ-064", "text": "A partir de este momento, ¿qué cambia en la facturación electrónica?", "lang": "es", "module": "facturacion"}
+{"id": "BQ-065", "text": "¿Por qué ya no hay reglas de reabastecimiento en mi almacén?", "lang": "es", "module": "inventario"}
+{"id": "BQ-066", "text": "There are no reordering rules for this product, how do I add one?", "lang": "en", "module": "inventario"}
+{"id": "BQ-067", "text": "¿Cómo ignoro el contexto de la compañía al importar productos?", "lang": "es", "module": "general"}
+{"id": "BQ-068", "text": "¿Cómo actualizo la dirección de todos los clientes de una zona?", "lang": "es", "module": "ventas"}
+{"id": "BQ-069", "text": "¿Cómo exporto los correos de todos los contactos a Excel?", "lang": "es", "module": "ventas"}
+{"id": "BQ-070", "text": "¿Dónde se guardan los teléfonos de los clientes en Odoo?", "lang": "es", "module": "ventas"}
+{"id": "BQ-071", "text": "Necesito el correo del cliente Comercial Los Volcanes para reenviarle la factura", "lang": "es", "module": "facturacion"}
+{"id": "BQ-072", "text": "¿Qué instrucciones siguen los desarrolladores para migrar módulos a 18.0?", "lang": "es", "module": "actualizacion"}
+{"id": "BQ-073", "text": "¿Cómo se configuró el almacén con recepción en dos pasos?", "lang": "es", "module": "inventario"}
+{"id": "BQ-074", "text": "How was the warehouse configured for three-step delivery?", "lang": "en", "module": "inventario"}
+{"id": "BQ-075", "text": "Los correos de cotización caen en spam, ¿qué configuro?", "lang": "es", "module": "ventas"}
+{"id": "BQ-076", "text": "Soy administrador de la empresa y los correos de facturas caen en spam", "lang": "es", "module": "facturacion"}
+{"id": "BQ-077", "text": "¿Cómo marco como confirmado un pedido de venta?", "lang": "es", "module": "ventas"}
+{"id": "BQ-078", "text": "¿Cómo inicio sesión como otro usuario para revisar sus permisos?", "lang": "es", "module": "accesos"}
+{"id": "BQ-079", "text": "¿Cuál es el contexto de uso de la tarifa mayorista?", "lang": "es", "module": "ventas"}
+{"id": "BQ-080", "text": "Stop following the default route for this product, how do I change it?", "lang": "en", "module": "inventario"}

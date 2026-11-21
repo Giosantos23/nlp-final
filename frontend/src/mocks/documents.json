@@ -1,0 +1,223 @@
+{
+  "documents": [
+    {
+      "doc_id": "odoo-18.0-inventario",
+      "source": "odoo-18.0-inventario.pdf",
+      "title": "Odoo 18.0 · Inventario",
+      "version": "18.0@a1b2c3d",
+      "erp_version": "18.0",
+      "status": "vigente",
+      "module": "inventario",
+      "doc_type": "odoo_doc",
+      "language": "en",
+      "allowed_roles": ["portal_user", "n1", "n2", "admin"],
+      "origin": "github.com/odoo/documentation (rama 18.0)",
+      "license": "CC BY-SA 4.0",
+      "owner": "Odoo S.A.",
+      "sensitivity": "publica",
+      "update_frequency": "trimestral",
+      "date": "2025-10-02",
+      "pages_total": 16,
+      "pages": [
+        {
+          "page": 14,
+          "heading": "Inventory > Receipts and deliveries > Two-step receipts",
+          "blocks": [
+            {
+              "chunk": 1,
+              "section_path": "Inventario > Recepciones y entregas > Recepción en dos pasos",
+              "text": "Two-step receipts move incoming goods to an Input location first and then to Stock. To enable them, go to Inventory > Configuration > Settings, and in the Warehouse section activate Storage Locations and Multi-Step Routes, then click Save."
+            },
+            {
+              "chunk": 2,
+              "section_path": "Inventario > Recepciones y entregas > Recepción en dos pasos",
+              "text": "Next, open Inventory > Configuration > Warehouses, select the warehouse and, under Incoming Shipments, choose Receive then store (2 steps). Odoo creates the receipt and an internal transfer from WH/Input to WH/Stock automatically."
+            }
+          ]
+        },
+        {
+          "page": 15,
+          "heading": "Inventory > Receipts and deliveries > Processing a two-step receipt",
+          "blocks": [
+            {
+              "chunk": 0,
+              "section_path": "Inventario > Recepciones y entregas > Procesar la recepción",
+              "text": "When the vendor delivers, validate the receipt to place products in WH/Input. The storage transfer becomes Ready; open it from the Inventory Overview, set the destination sublocation if needed and click Validate to move the goods into WH/Stock."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc_id": "odoo-17.0-inventario",
+      "source": "odoo-17.0-inventario.pdf",
+      "title": "Odoo 17.0 · Inventario",
+      "version": "17.0@9f81e2a",
+      "erp_version": "17.0",
+      "status": "vigente",
+      "module": "inventario",
+      "doc_type": "odoo_doc",
+      "language": "en",
+      "allowed_roles": ["portal_user", "n1", "n2", "admin"],
+      "origin": "github.com/odoo/documentation (rama 17.0)",
+      "license": "CC BY-SA 4.0",
+      "owner": "Odoo S.A.",
+      "sensitivity": "publica",
+      "update_frequency": "trimestral",
+      "date": "2025-06-18",
+      "pages_total": 14,
+      "pages": [
+        {
+          "page": 12,
+          "heading": "Inventory > Shipping and receiving > Two-step receipts",
+          "blocks": [
+            {
+              "chunk": 1,
+              "section_path": "Inventario > Envíos y recepciones > Recepción en dos pasos",
+              "text": "To configure two-step receipts, go to Inventory > Configuration > Settings and enable Multi-Step Routes under Warehouse; Storage Locations is enabled automatically. Then open Inventory > Configuration > Warehouses and set Incoming Shipments to Receive goods in input and then stock (2 steps)."
+            }
+          ]
+        },
+        {
+          "page": 13,
+          "heading": "Inventory > Shipping and receiving > Processing receipts",
+          "blocks": [
+            {
+              "chunk": 0,
+              "section_path": "Inventario > Envíos y recepciones > Procesar recepciones",
+              "text": "Validate the receipt from Inventory > Operations > Receipts. The internal transfer to WH/Stock is created with the status Waiting until the receipt is done; then it can be validated from Inventory > Operations > Internal."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc_id": "RB-N1-004@v1.2",
+      "source": "RB-N1-004_recepciones_v1.2.pdf",
+      "title": "RB-N1-004 · Recepciones con verificación en almacén",
+      "version": "v1.2",
+      "erp_version": "any",
+      "status": "vigente",
+      "module": "inventario",
+      "doc_type": "runbook",
+      "language": "es",
+      "allowed_roles": ["n1", "n2", "admin"],
+      "origin": "Altamira Soluciones ERP · runbook interno (sintético)",
+      "license": "Uso interno",
+      "owner": "Mesa de ayuda N1",
+      "sensitivity": "interna",
+      "update_frequency": "mensual",
+      "date": "2026-08-11",
+      "pages_total": 4,
+      "pages": [
+        {
+          "page": 2,
+          "heading": "2. Procedimiento para clientes con recepción en dos pasos",
+          "blocks": [
+            {
+              "chunk": 0,
+              "section_path": "RB-N1-004 > Procedimiento > Recepción en dos pasos",
+              "text": "Antes de cambiar la ruta del almacén, verifique que no haya recepciones en estado Listo; si existen, valídelas o cancélelas con el cliente. Tras activar la recepción en dos pasos, pida al cliente una recepción de prueba y confirme que se generó el traslado WH/Entrada a WH/Existencias. Registre el cambio en el ticket con la etiqueta ruta-almacen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc_id": "RB-N2-003@v1.1",
+      "source": "RB-N2-003_reindexacion_v1.1.pdf",
+      "title": "RB-N2-003 · Reindexación y mantenimiento de base de datos",
+      "version": "v1.1",
+      "erp_version": "any",
+      "status": "vigente",
+      "module": "actualizacion",
+      "doc_type": "runbook",
+      "language": "es",
+      "allowed_roles": ["n2", "admin"],
+      "origin": "Altamira Soluciones ERP · runbook interno (sintético)",
+      "license": "Uso interno",
+      "owner": "Soporte N2 · Plataforma",
+      "sensitivity": "confidencial",
+      "update_frequency": "trimestral",
+      "date": "2026-07-02",
+      "pages_total": 5,
+      "pages": [
+        {
+          "page": 3,
+          "heading": "3. Ventana de mantenimiento",
+          "blocks": [
+            {
+              "chunk": 0,
+              "section_path": "RB-N2-003 > Ventana de mantenimiento",
+              "text": "La reindexación de producción solo se ejecuta dentro de la ventana aprobada por el cliente y con respaldo verificado del día. El analista N2 notifica al administrador de la cuenta, detiene los trabajos programados y registra la hora de inicio en el ticket."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc_id": "POL-SLA-001@v2.0",
+      "source": "POL-SLA-001_politica_sla_v2.0.pdf",
+      "title": "POL-SLA-001 · Política de niveles de servicio",
+      "version": "v2.0",
+      "erp_version": "any",
+      "status": "vigente",
+      "module": "general",
+      "doc_type": "policy",
+      "language": "es",
+      "allowed_roles": ["n1", "n2", "admin"],
+      "origin": "Altamira Soluciones ERP · política interna (sintética)",
+      "license": "Uso interno",
+      "owner": "Gerencia de servicio",
+      "sensitivity": "interna",
+      "update_frequency": "anual",
+      "date": "2026-01-15",
+      "pages_total": 4,
+      "pages": [
+        {
+          "page": 3,
+          "heading": "3. Tiempos de resolución por prioridad",
+          "blocks": [
+            {
+              "chunk": 0,
+              "section_path": "POL-SLA-001 > Tiempos de resolución",
+              "text": "Prioridad crítica: primera respuesta en 1 hora y resolución en 8 horas hábiles. Prioridad alta: primera respuesta en 4 horas y resolución en 2 días hábiles. Prioridad media: 1 día y 5 días hábiles. Los tickets en espera del cliente pausan el contador de SLA."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc_id": "odoo-18.0-facturacion",
+      "source": "odoo-18.0-facturacion.pdf",
+      "title": "Odoo 18.0 · Facturación",
+      "version": "18.0@a1b2c3d",
+      "erp_version": "18.0",
+      "status": "vigente",
+      "module": "facturacion",
+      "doc_type": "odoo_doc",
+      "language": "en",
+      "allowed_roles": ["portal_user", "n1", "n2", "admin"],
+      "origin": "github.com/odoo/documentation (rama 18.0)",
+      "license": "CC BY-SA 4.0",
+      "owner": "Odoo S.A.",
+      "sensitivity": "publica",
+      "update_frequency": "trimestral",
+      "date": "2025-10-02",
+      "pages_total": 22,
+      "pages": [
+        {
+          "page": 21,
+          "heading": "Accounting > Customer invoices > Journal entries",
+          "blocks": [
+            {
+              "chunk": 2,
+              "section_path": "Facturación > Facturas de cliente > Asientos contables",
+              "text": "Confirming a customer invoice posts a journal entry in the Sales journal. If the income account is missing on the product or its category, Odoo blocks the confirmation and shows which account must be configured."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+# --- Secretos (no versionar nunca) ---
+.env
+.env.*
+!.env.example
+
+# --- Python / uv ---
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+build/
+dist/
+
+# --- Datos generados (reproducibles con `make corpus ingest`) ---
+data/raw
+data/build
+data/processed
+data/index
+data/tickets/*.db
+data/tickets/*.db-journal
+data/tickets/*.db-wal
+data/tickets/*.db-shm
+
+# --- Ejecución ---
+logs/
+.cache/
+
+# --- Frontend ---
+node_modules
+frontend/dist
+frontend/.vite/
+
+# --- Video ---
+video/renders/
+video/.hyperframes/
+
+# --- Worktrees locales de agentes (no forman parte del repositorio) ---
+.claude/worktrees/
+
+# --- Sistema / editores ---
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Entorno local y secretos
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+
+# Frontend
+node_modules/
+dist/
+
+# Artefactos locales
+*.log
+.DS_Store

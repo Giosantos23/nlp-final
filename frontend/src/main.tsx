@@ -1,0 +1,14 @@
+/** Punto de entrada: monta la aplicación en modo estricto de React. */
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import "./index.css";
+
+const root = document.getElementById("root");
+if (!root) throw new Error("No se encontró el elemento #root en index.html");
+
+createRoot(root).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);

@@ -1,0 +1,229 @@
+# Manifiesto del corpus interno sintético de Altamira Soluciones ERP.
+# GENERADO por `docuerp data build-runbooks` (scripts/build_runbooks.py): no editar a mano.
+# - `documents`: una entrada por runbook/política (SourceEntry); incluye la versión obsoleta
+#   de RB-N2-003 para probar vigencia. RB-N1-008 lleva `poisoned: true` (inyección indirecta
+#   deliberada en una nota al pie) y está vigente para que entre al índice.
+# - `datasets`: fuentes de datos que no se ingieren como documentos (BD de tickets).
+documents:
+- id: POL-SLA-001@v1.0
+  title: POL-SLA-001 Política de soporte y SLA (v1.0)
+  source_file: POL-SLA-001_v1.0.pdf
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Gerencia de Operaciones · Altamira Soluciones ERP
+  format: pdf
+  version: v1.0
+  erp_version: any
+  status: vigente
+  date: '2026-04-14'
+  update_frequency: anual
+  allowed_roles:
+  - n1
+  - n2
+  - admin
+  sensitivity: internal
+  module: general
+  doc_type: policy
+  language: es
+  sha256: 60c032e0808729aff8d8e32f809d3e79d41c3e32513b7e46492223f8f6fa7b82
+- id: RB-ADM-006@v2.0
+  title: RB-ADM-006 Migración de base de datos 17.0 a 18.0 (v2.0)
+  source_file: RB-ADM-006_v2.0.pdf
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Administración de plataforma · Altamira Soluciones ERP
+  format: pdf
+  version: v2.0
+  erp_version: any
+  status: vigente
+  date: '2026-10-05'
+  update_frequency: trimestral
+  allowed_roles:
+  - admin
+  sensitivity: restricted
+  module: actualizacion
+  doc_type: runbook
+  language: es
+  sha256: b13b75cf2b3bbb00fa17584cc63ed79b5f22bcc4707c91e72f2a19575ae87f91
+- id: RB-ADM-007@v1.0
+  title: RB-ADM-007 Gestión de grupos de seguridad y reglas de registro (v1.0)
+  source_file: RB-ADM-007_v1.0.docx
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Administración de plataforma · Altamira Soluciones ERP
+  format: docx
+  version: v1.0
+  erp_version: any
+  status: vigente
+  date: '2026-09-29'
+  update_frequency: semestral
+  allowed_roles:
+  - admin
+  sensitivity: restricted
+  module: accesos
+  doc_type: runbook
+  language: es
+  sha256: 9f1a63202bb30fbe679dae36aee8d0e60caeaa4fec178acf5f4dbad4847a0025
+- id: RB-N1-001@v1.1
+  title: RB-N1-001 Restablecimiento de acceso de usuarios del portal (v1.1)
+  source_file: RB-N1-001_v1.1.pdf
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Soporte N1 · Altamira Soluciones ERP
+  format: pdf
+  version: v1.1
+  erp_version: any
+  status: vigente
+  date: '2026-08-18'
+  update_frequency: semestral
+  allowed_roles:
+  - n1
+  - n2
+  - admin
+  sensitivity: internal
+  module: accesos
+  doc_type: runbook
+  language: es
+  sha256: 1347f60d2e822da8d360679a2cc4ea9f556e34ad6b3870caa91703f95451fe1e
+- id: RB-N1-002@v1.0
+  title: RB-N1-002 Recepciones de compra con diferencias de cantidad (v1.0)
+  source_file: RB-N1-002_v1.0.pdf
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Soporte N1 · Altamira Soluciones ERP
+  format: pdf
+  version: v1.0
+  erp_version: any
+  status: vigente
+  date: '2026-05-12'
+  update_frequency: semestral
+  allowed_roles:
+  - n1
+  - n2
+  - admin
+  sensitivity: internal
+  module: compras
+  doc_type: runbook
+  language: es
+  sha256: a02f54aaea53d26e1dd5dd94ded8a3bf4e1de2f769467155a8ece320f5f70c37
+- id: RB-N1-008@v1.0
+  title: RB-N1-008 Preguntas frecuentes de ventas (v1.0)
+  source_file: RB-N1-008_v1.0.docx
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Soporte N1 · Altamira Soluciones ERP
+  format: docx
+  version: v1.0
+  erp_version: any
+  status: vigente
+  date: '2026-09-01'
+  update_frequency: semestral
+  allowed_roles:
+  - n1
+  - n2
+  - admin
+  sensitivity: internal
+  module: ventas
+  doc_type: runbook
+  language: es
+  sha256: 7acf91d9361b1145f165fabdbcc42cdb0f66441348b2de850ec837a8ce4ec836
+  poisoned: true
+- id: RB-N2-003@v1.0
+  title: RB-N2-003 Ajustes de inventario y revalorización (v1.0)
+  source_file: RB-N2-003_v1.0.pdf
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Soporte N2 · Altamira Soluciones ERP
+  format: pdf
+  version: v1.0
+  erp_version: any
+  status: obsoleto
+  date: '2026-02-10'
+  update_frequency: trimestral
+  allowed_roles:
+  - n2
+  - admin
+  sensitivity: internal
+  module: inventario
+  doc_type: runbook
+  language: es
+  sha256: 2ad2e42df407864a559d4806260ce3f498978b5ffe78f17f0b1902fbf7de34cf
+- id: RB-N2-003@v1.1
+  title: RB-N2-003 Ajustes de inventario y revalorización (v1.1)
+  source_file: RB-N2-003_v1.1.pdf
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Soporte N2 · Altamira Soluciones ERP
+  format: pdf
+  version: v1.1
+  erp_version: any
+  status: vigente
+  date: '2026-09-15'
+  update_frequency: trimestral
+  allowed_roles:
+  - n2
+  - admin
+  sensitivity: internal
+  module: inventario
+  doc_type: runbook
+  language: es
+  sha256: 6fd2f1c513adac57950014aa4dd1bbc78655c34b8f1465465a59a00c297f388c
+- id: RB-N2-004@v1.0
+  title: RB-N2-004 Conciliación de facturas de proveedor (three-way match) (v1.0)
+  source_file: RB-N2-004_v1.0.docx
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Soporte N2 · Altamira Soluciones ERP
+  format: docx
+  version: v1.0
+  erp_version: any
+  status: vigente
+  date: '2026-06-23'
+  update_frequency: semestral
+  allowed_roles:
+  - n2
+  - admin
+  sensitivity: internal
+  module: compras
+  doc_type: runbook
+  language: es
+  sha256: 0abc1420d4fed4a7911346cbfaeaade6cea76e914db2d75962e6908a39e98334
+- id: RB-N2-005@v1.0
+  title: RB-N2-005 Escalamiento de incidencias de rendimiento y bloqueos de inventario (v1.0)
+  source_file: RB-N2-005_v1.0.pdf
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Soporte N2 · Altamira Soluciones ERP
+  format: pdf
+  version: v1.0
+  erp_version: any
+  status: vigente
+  date: '2026-07-07'
+  update_frequency: semestral
+  allowed_roles:
+  - n2
+  - admin
+  sensitivity: internal
+  module: inventario
+  doc_type: runbook
+  language: es
+  sha256: 7ed0a9a6b55dc729c2d27b454ab31f47c1ea3db1e3e215914e1938805da6de3a
+datasets:
+- id: tickets-db
+  title: Base de tickets sintéticos de soporte (SQLite)
+  path: data/tickets/tickets.db
+  origin: Equipo DocuERP (autoría propia)
+  license: Uso académico interno (sintético)
+  owner: Equipo DocuERP
+  format: sqlite
+  version: seed-42
+  date: '2026-11-16'
+  update_frequency: bajo demanda (docuerp data seed-tickets)
+  sensitivity: internal
+  language: es
+  generator: docuerp data seed-tickets
+  records:
+    tickets: 300
+  contains_synthetic_pii: true
+  access_policy: 'Lectura por rol vía get_ticket_status: portal_user = tickets que reportó; n1 = asignados;
+    n2 = cuentas de su cartera; admin = todos.'

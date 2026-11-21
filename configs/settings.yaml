@@ -1,0 +1,110 @@
+# DocuERP — configuración por defecto (versionada).
+# Precedencia: argumentos explícitos > variables de entorno DOCUERP_* > este archivo > defaults.
+# Variables anidadas con doble guion bajo, p. ej. DOCUERP_RETRIEVAL__TOP_K=8.
+# Alias planos admitidos: DOCUERP_LLM_PROVIDER, DOCUERP_LLM_MODEL, DOCUERP_JUDGE_MODEL,
+# DOCUERP_HMAC_SECRET. Los secretos NUNCA van en este archivo (ver .env.example).
+
+project: DocuERP
+seed: 42
+log_level: INFO
+
+retrieval:
+  mode: hybrid_rerank          # bm25 | dense | hybrid | hybrid_rerank | hybrid_rerank_mmr
+  chunker: structure           # structure | fixed256 | fixed768
+  embedder: bge-m3             # bge-m3 | e5-base (claves de models.embedders)
+  candidates_k: 20             # candidatos por recuperador antes de fusión/rerank
+  top_k: 5                     # contexto final entregado al generador
+  rrf_k: 60                    # constante de Reciprocal Rank Fusion
+  weights:                     # pesos de la fusión RRF
+    bm25: 0.5
+    dense: 0.5
+  tau: 0.00                    # gate sobre el score de rerank; calibrado a nivel sistema (reports/retrieval/tau_calibration.md): el LLM fundamentado se abstiene mejor que el umbral
+  mmr_lambda: 0.7              # relevancia vs diversidad en MMR
+  include_obsolete: false
+  device: auto                 # auto | mps | cuda | cpu
+  batch_size: 16
+
+chunking:
+  target_tokens: 450
+  overlap: 0.15                # fracción de solapamiento entre chunks consecutivos
+  min_tokens: 40               # chunks más cortos se fusionan con el vecino
+  fixed_sizes: [256, 768]      # variantes FixedChunker para ablación
+
+models:
+  embedders:
+    bge-m3: BAAI/bge-m3
+    e5-base: intfloat/multilingual-e5-base
+  reranker: BAAI/bge-reranker-v2-m3
+  tokenizer: BAAI/bge-m3       # tokenizador para contar tokens en chunking
+  max_seq_length: 1024
+  use_fp16: true               # fp16 estable en MPS (respaldo automático a fp32 si no)
+
+llm:
+  provider: agent_sdk          # agent_sdk | anthropic_api | offline | fake
+  model: claude-haiku-5-5
+  judge_model: claude-opus-5-5 # distinto del generador (evita sesgo de autoevaluación)
+  max_tokens: 4096             # incluye el razonamiento oculto de Haiku; con 2048 una respuesta larga de la demo degradó al proveedor offline (0/252 en la evaluación medida, que usó 2048)
+  timeout_s: 45
+  effort: low
+  temperature: 0.0             # solo aplica al proveedor anthropic_api
+  retries: 1                   # reintentos si el JSON no valida
+  fallback_provider: offline   # degradación controlada ante timeout/caída
+  max_concurrency: 6           # llamadas simultáneas al proveedor (evaluación)
+  use_client_pool: false       # pool de clientes persistentes del Agent SDK
+  pricing:                     # USD por millón de tokens (precio de lista)
+    claude-haiku-5-5:
+      input: 0.10
+      output: 0.50
+    claude-sonnet-5-5:
+      input: 2.0
+      output: 10.0
+      cache_read: 0.10           # tarifa propia (0.05× la entrada)
+    claude-opus-5-5:
+      input: 4.0
+      output: 20.0
+      cache_read: 0.20
+  cache_read_multiplier: 0.1   # lectura de caché = 10 % del precio de entrada
+  cache_write_multiplier: 1.25 # escritura de caché = 125 % del precio de entrada
+
+agent:
+  max_steps: 4                 # pasos de acción por consulta
+  max_tool_calls: 3            # llamadas a herramientas por consulta
+  create_ticket_per_session: 3
+  confirmation_ttl_min: 10
+  tool_timeout_s: 10
+  router:
+    ood_threshold: 0.35        # similitud máxima al corpus por debajo → out_of_domain
+    min_confidence: 0.55       # por debajo, el router pide aclaración / revisión
+  classifier:
+    min_confidence: 0.60       # por debajo → needs_human_review
+
+security:
+  max_query_chars: 2000
+  injection_threshold: 0.70    # risk_score ≥ umbral → bloqueo
+  semantic_attack_threshold: 0.74  # similitud al banco de ataques (calibrado con bge-m3, ver reports/security/semantic_calibration.md)
+  semantic_enabled: true
+  semantic_margin: 0.10         # zona gradual [0.64, 0.74): suma riesgo, no bloquea sola
+  embedder: null               # null = el de retrieval (bge-m3); fake en CI
+  mask_pii_in_logs: true
+  block_on_canary: true
+
+api:
+  host: 127.0.0.1
+  port: 8000
+  cors_origins:
+    - http://localhost:5173
+    - http://127.0.0.1:5173
+
+paths:                         # relativas a la raíz del repositorio
+  data: data
+  raw: data/raw
+  build: data/build
+  processed: data/processed
+  index: data/index
+  manifest: data/manifest
+  tickets_db: data/tickets/tickets.db
+  logs: logs
+  audit_log: logs/audit.jsonl
+  reports: reports
+  eval: eval
+  eval_results: eval/results

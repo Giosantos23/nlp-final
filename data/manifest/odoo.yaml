@@ -1,0 +1,282 @@
+# Manifiesto de la documentación oficial de Odoo (generado por
+# scripts/build_odoo_pdfs.py). Formato de origen: RST → PDF (compilado por DocuERP).
+# Licencia CC BY-SA 4.0, © Odoo S.A.; el sha256 es el del PDF generado.
+documents:
+- id: odoo-17.0-inventario
+  title: Odoo 17.0 — Inventario
+  source_file: odoo-17.0-inventario.pdf
+  origin: 'https://github.com/odoo/documentation/tree/fbf3e3a6ef0bda7c30b28f213848deca17c2a872 (content/:
+    applications/inventory_and_mrp/inventory.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 17.0@fbf3e3a
+  erp_version: '17.0'
+  status: vigente
+  date: '2026-10-23T14:40:22Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: inventario
+  doc_type: odoo_doc
+  language: en
+  sha256: 53be3c73c7854c6952743afeb4cbfa46097f196ce8535958a63123f1fdad764e
+- id: odoo-17.0-compras
+  title: Odoo 17.0 — Compras
+  source_file: odoo-17.0-compras.pdf
+  origin: 'https://github.com/odoo/documentation/tree/fbf3e3a6ef0bda7c30b28f213848deca17c2a872 (content/:
+    applications/inventory_and_mrp/purchase.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 17.0@fbf3e3a
+  erp_version: '17.0'
+  status: vigente
+  date: '2026-10-23T14:40:22Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: compras
+  doc_type: odoo_doc
+  language: en
+  sha256: a2c85d2c1057f8ebc7a4446d8790f35dc297895a9943d7282dabedf12abf75ed
+- id: odoo-17.0-ventas
+  title: Odoo 17.0 — Ventas
+  source_file: odoo-17.0-ventas.pdf
+  origin: 'https://github.com/odoo/documentation/tree/fbf3e3a6ef0bda7c30b28f213848deca17c2a872 (content/:
+    applications/sales/sales.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 17.0@fbf3e3a
+  erp_version: '17.0'
+  status: vigente
+  date: '2026-10-23T14:40:22Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: ventas
+  doc_type: odoo_doc
+  language: en
+  sha256: 19d57cd8e502d581a34a43a6793ca2804cd36901462187c6a558d99d7de0b5f1
+- id: odoo-17.0-facturacion
+  title: Odoo 17.0 — Facturación (clientes y proveedores)
+  source_file: odoo-17.0-facturacion.pdf
+  origin: 'https://github.com/odoo/documentation/tree/fbf3e3a6ef0bda7c30b28f213848deca17c2a872 (content/:
+    applications/finance/accounting/customer_invoices.rst, applications/finance/accounting/vendor_bills.rst;
+    RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 17.0@fbf3e3a
+  erp_version: '17.0'
+  status: vigente
+  date: '2026-10-23T14:40:22Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: facturacion
+  doc_type: odoo_doc
+  language: en
+  sha256: d138a852fdbe41aec47c2ca1f671e5a76b846abb8c4b919589932fd336a05177
+- id: odoo-17.0-accesos
+  title: Odoo 17.0 — Usuarios, derechos de acceso y modo desarrollador
+  source_file: odoo-17.0-accesos.pdf
+  origin: 'https://github.com/odoo/documentation/tree/fbf3e3a6ef0bda7c30b28f213848deca17c2a872 (content/:
+    applications/general/users.rst, applications/general/developer_mode.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 17.0@fbf3e3a
+  erp_version: '17.0'
+  status: vigente
+  date: '2026-10-23T14:40:22Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: accesos
+  doc_type: odoo_doc
+  language: en
+  sha256: 988035bc7f8eefb808eb52dde4ba881dffe695ee1b67acb6b303915048eef99a
+- id: odoo-17.0-actualizacion
+  title: Odoo 17.0 — Actualización y soporte extendido
+  source_file: odoo-17.0-actualizacion.pdf
+  origin: 'https://github.com/odoo/documentation/tree/fbf3e3a6ef0bda7c30b28f213848deca17c2a872 (content/:
+    administration/upgrade.rst, administration/standard_extended_support.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 17.0@fbf3e3a
+  erp_version: '17.0'
+  status: vigente
+  date: '2026-10-23T14:40:22Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: actualizacion
+  doc_type: odoo_doc
+  language: en
+  sha256: 1caaf51319718e0fb3f4617e82706a9153e2f4e81691dbdc0dc54ac751bb7a19
+- id: odoo-18.0-inventario
+  title: Odoo 18.0 — Inventario
+  source_file: odoo-18.0-inventario.pdf
+  origin: 'https://github.com/odoo/documentation/tree/160a12ca9f533e0dfe0027c856ab18ff335fe55c (content/:
+    applications/inventory_and_mrp/inventory.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 18.0@160a12c
+  erp_version: '18.0'
+  status: vigente
+  date: '2026-11-16T12:14:38Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: inventario
+  doc_type: odoo_doc
+  language: en
+  sha256: 04b0b7c8e5120a82c1588aa26670dc40d954a9c572b79702c80df7b8a2862ff4
+- id: odoo-18.0-compras
+  title: Odoo 18.0 — Compras
+  source_file: odoo-18.0-compras.pdf
+  origin: 'https://github.com/odoo/documentation/tree/160a12ca9f533e0dfe0027c856ab18ff335fe55c (content/:
+    applications/inventory_and_mrp/purchase.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 18.0@160a12c
+  erp_version: '18.0'
+  status: vigente
+  date: '2026-11-16T12:14:38Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: compras
+  doc_type: odoo_doc
+  language: en
+  sha256: df67d7acde0575c5f6a3ab193b73cb85607bec7f628d40f1b78de1061f2660f6
+- id: odoo-18.0-ventas
+  title: Odoo 18.0 — Ventas
+  source_file: odoo-18.0-ventas.pdf
+  origin: 'https://github.com/odoo/documentation/tree/160a12ca9f533e0dfe0027c856ab18ff335fe55c (content/:
+    applications/sales/sales.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 18.0@160a12c
+  erp_version: '18.0'
+  status: vigente
+  date: '2026-11-16T12:14:38Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: ventas
+  doc_type: odoo_doc
+  language: en
+  sha256: cef7f4966e8716105ced9f04f4d0a36b57623615b184a8b30cc916496371fcc3
+- id: odoo-18.0-facturacion
+  title: Odoo 18.0 — Facturación (clientes y proveedores)
+  source_file: odoo-18.0-facturacion.pdf
+  origin: 'https://github.com/odoo/documentation/tree/160a12ca9f533e0dfe0027c856ab18ff335fe55c (content/:
+    applications/finance/accounting/customer_invoices.rst, applications/finance/accounting/vendor_bills.rst;
+    RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 18.0@160a12c
+  erp_version: '18.0'
+  status: vigente
+  date: '2026-11-16T12:14:38Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: facturacion
+  doc_type: odoo_doc
+  language: en
+  sha256: 9805d8f33b1586a181f66efa60ed47af5d25215acf44b3f2c7cd00f1a4f94041
+- id: odoo-18.0-accesos
+  title: Odoo 18.0 — Usuarios, derechos de acceso y modo desarrollador
+  source_file: odoo-18.0-accesos.pdf
+  origin: 'https://github.com/odoo/documentation/tree/160a12ca9f533e0dfe0027c856ab18ff335fe55c (content/:
+    applications/general/users.rst, applications/general/developer_mode.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 18.0@160a12c
+  erp_version: '18.0'
+  status: vigente
+  date: '2026-11-16T12:14:38Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: accesos
+  doc_type: odoo_doc
+  language: en
+  sha256: e1dea76d298e69d1890896f95bd755f7d351be88406beda5b6f47f0643de5ddf
+- id: odoo-18.0-actualizacion
+  title: Odoo 18.0 — Actualización y soporte extendido
+  source_file: odoo-18.0-actualizacion.pdf
+  origin: 'https://github.com/odoo/documentation/tree/160a12ca9f533e0dfe0027c856ab18ff335fe55c (content/:
+    administration/upgrade.rst, administration/standard_extended_support.rst; RST compilado a PDF)'
+  license: 'CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); modificado: compilado a PDF'
+  owner: Odoo S.A.
+  format: pdf
+  version: 18.0@160a12c
+  erp_version: '18.0'
+  status: vigente
+  date: '2026-11-16T12:14:38Z'
+  update_frequency: por versión mayor
+  allowed_roles:
+  - portal_user
+  - n1
+  - n2
+  - admin
+  sensitivity: public
+  module: actualizacion
+  doc_type: odoo_doc
+  language: en
+  sha256: d7b3f4958bb4d6da100dd05ef5dcd51f6f2ef1014a2f56ccc258c1903189bae2

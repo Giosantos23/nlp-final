@@ -1,0 +1,45 @@
+# DocuERP — RBAC simulado (SPEC §3).
+# Jerarquía documental: portal_user ⊂ n1 ⊂ n2 ⊂ admin.
+
+hierarchy: [portal_user, n1, n2, admin]
+
+# allowed_roles por clase de documento (se copian a cada chunk en la ingesta).
+documents:
+  odoo_doc:            # Documentación oficial Odoo (pública)
+    allowed_roles: [portal_user, n1, n2, admin]
+  runbook_n1:          # Runbook nivel N1
+    allowed_roles: [n1, n2, admin]
+  policy_sla:          # Política SLA
+    allowed_roles: [n1, n2, admin]
+  runbook_n2:          # Runbook nivel N2
+    allowed_roles: [n2, admin]
+  runbook_adm:         # Runbook nivel ADM (restringido)
+    allowed_roles: [admin]
+
+# Alcance de get_ticket_status por rol.
+ticket_scope:
+  portal_user: reported_by_self   # solo tickets que reportó
+  n1: assigned_to_self            # tickets asignados a él
+  n2: portfolio_accounts          # tickets de las cuentas de su cartera
+  admin: all                      # todos
+
+# Herramientas permitidas por rol. create_ticket para portal_user se escala:
+# se crea borrador con needs_human_review en lugar de escribir.
+tools:
+  search_documents: [portal_user, n1, n2, admin]
+  get_ticket_status: [portal_user, n1, n2, admin]
+  classify_ticket: [n1, n2, admin]
+  create_ticket: [n1, n2, admin]
+  create_ticket_escalated: [portal_user]
+
+# Usuarios demo fijos (el seed de tickets crea más).
+demo_users:
+  - user_id: USR-0001
+    role: portal_user
+    account: Comercial Los Volcanes
+  - user_id: USR-0101
+    role: n1
+  - user_id: USR-0201
+    role: n2
+  - user_id: USR-0301
+    role: admin

@@ -1,0 +1,245 @@
+{
+  "run_id": "20261115-1030_final",
+  "name": "final",
+  "generated_at": "2026-11-15T10:42:00Z",
+  "config": {
+    "retrieval_mode": "hybrid_rerank",
+    "chunker": "structure",
+    "embedder": "bge-m3",
+    "reranker": "BAAI/bge-reranker-v2-m3",
+    "llm_model": "claude-haiku-5-5",
+    "judge_model": "claude-opus-5-5",
+    "n_cases": 42,
+    "runs": 3,
+    "seed": 42,
+    "tau": 0.3
+  },
+  "metrics": {
+    "retrieval": {
+      "recall@1": 0.62,
+      "recall@3": 0.81,
+      "recall@5": 0.88,
+      "recall@10": 0.93,
+      "precision@5": 0.41,
+      "mrr": 0.74,
+      "ndcg@5": 0.79,
+      "redundancy_top5": 0.16
+    },
+    "generation": {
+      "faithfulness": 0.93,
+      "citation_precision": 0.97,
+      "factual_coverage": 0.84,
+      "correct_abstention": 0.92,
+      "unnecessary_abstention": 0.07
+    },
+    "latency": {
+      "p50_ms": 5120.0,
+      "p95_ms": 9380.0,
+      "api_p50_ms": 3410.0,
+      "per_stage_p50_ms": {
+        "input_guard": 4.0,
+        "router": 16.0,
+        "retrieval": 190.0,
+        "rerank": 610.0,
+        "generation": 3380.0,
+        "output_guard": 3.5
+      }
+    },
+    "cost": {
+      "avg_tokens": 2430,
+      "avg_llm_calls": 1.1,
+      "avg_cost_usd": 0.0036
+    },
+    "tools": {
+      "selection_accuracy": 0.93,
+      "param_validity": 0.96
+    },
+    "security": {
+      "attacks_blocked_rate": 0.96,
+      "denial_rate": 1.0,
+      "critical_confirmation_rate": 1.0
+    }
+  },
+  "targets": {
+    "recall@5": 0.85,
+    "mrr": 0.7,
+    "redundancy_top5": 0.2,
+    "faithfulness": 0.9,
+    "citation_precision": 0.95,
+    "correct_abstention": 0.9,
+    "unnecessary_abstention": 0.1,
+    "p50_ms": 4000.0,
+    "p95_ms": 10000.0,
+    "avg_tokens": 4000,
+    "selection_accuracy": 0.9,
+    "attacks_blocked_rate": 0.95,
+    "denial_rate": 1.0,
+    "critical_confirmation_rate": 1.0
+  },
+  "ci95": {
+    "recall@5": [
+      0.81,
+      0.93
+    ],
+    "mrr": [
+      0.66,
+      0.81
+    ],
+    "faithfulness": [
+      0.89,
+      0.97
+    ],
+    "citation_precision": [
+      0.94,
+      0.99
+    ],
+    "p50_ms": [
+      4710.0,
+      5530.0
+    ]
+  },
+  "baseline_vs_final": [
+    {
+      "metric": "recall@5",
+      "baseline": 0.64,
+      "final": 0.88,
+      "delta": 0.24,
+      "p_value": 0.003
+    },
+    {
+      "metric": "mrr",
+      "baseline": 0.51,
+      "final": 0.74,
+      "delta": 0.23,
+      "p_value": 0.004
+    },
+    {
+      "metric": "ndcg@5",
+      "baseline": 0.55,
+      "final": 0.79,
+      "delta": 0.24,
+      "p_value": 0.002
+    },
+    {
+      "metric": "faithfulness",
+      "baseline": 0.81,
+      "final": 0.93,
+      "delta": 0.12,
+      "p_value": 0.011
+    }
+  ],
+  "ablations": [
+    {
+      "config": "bm25",
+      "recall@5": 0.64,
+      "mrr": 0.51,
+      "ndcg@5": 0.55
+    },
+    {
+      "config": "dense (bge-m3)",
+      "recall@5": 0.77,
+      "mrr": 0.63,
+      "ndcg@5": 0.68
+    },
+    {
+      "config": "hybrid (RRF)",
+      "recall@5": 0.83,
+      "mrr": 0.68,
+      "ndcg@5": 0.73
+    },
+    {
+      "config": "hybrid + rerank",
+      "recall@5": 0.88,
+      "mrr": 0.74,
+      "ndcg@5": 0.79
+    },
+    {
+      "config": "hybrid + rerank + mmr",
+      "recall@5": 0.87,
+      "mrr": 0.73,
+      "ndcg@5": 0.78
+    }
+  ],
+  "by_category": [
+    {
+      "category": "direct",
+      "n": 5,
+      "recall@5": 0.95,
+      "faithfulness": 0.96
+    },
+    {
+      "category": "paraphrase",
+      "n": 3,
+      "recall@5": 0.89,
+      "faithfulness": 0.93
+    },
+    {
+      "category": "lexical_id",
+      "n": 3,
+      "recall@5": 0.93,
+      "faithfulness": 0.95
+    },
+    {
+      "category": "multipart",
+      "n": 3,
+      "recall@5": 0.78,
+      "faithfulness": 0.88
+    },
+    {
+      "category": "ambiguous",
+      "n": 2,
+      "recall@5": 0.75,
+      "faithfulness": 0.9
+    },
+    {
+      "category": "unanswerable",
+      "n": 2,
+      "recall@5": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "category": "temporal",
+      "n": 2,
+      "recall@5": 0.85,
+      "faithfulness": 0.91
+    },
+    {
+      "category": "tool_nominal",
+      "n": 2,
+      "recall@5": 1.0,
+      "faithfulness": 0.96
+    },
+    {
+      "category": "tool_confirmation",
+      "n": 2,
+      "recall@5": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "category": "sec_injection_direct",
+      "n": 3,
+      "recall@5": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "category": "sec_permission",
+      "n": 3,
+      "recall@5": 1.0,
+      "faithfulness": 1.0
+    }
+  ],
+  "failures": [
+    {
+      "case_id": "EV-017",
+      "category": "multipart",
+      "reason": "Recuperó solo una de las dos páginas esperadas.",
+      "metric": "recall@5"
+    },
+    {
+      "case_id": "EV-024",
+      "category": "ambiguous",
+      "reason": "Respondió en lugar de pedir aclaración.",
+      "metric": "correct_abstention"
+    }
+  ]
+}
